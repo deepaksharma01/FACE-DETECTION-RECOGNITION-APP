@@ -1,0 +1,87 @@
+#:include homescreen.kv
+#:include profilephotoscreen.kv
+#:include takephotoscreen.kv
+#:include trainphotoscreen.kv
+#:include helpscreen.kv
+#:import utils kivy.utils
+
+Screen:
+    MDToolbar :
+        id: titlename
+        title : 'Face Detection '
+        theme_text_color: app.theme_cls.bg_dark
+        action_icon_color: app.theme_cls.bg_dark
+        specific_text_color: app.theme_cls.bg_dark
+        
+        left_action_items : [["menu", lambda x : nav_drawer.toggle_nav_drawer()]]
+        right_action_items : [["help-circle-outline",lambda x : app.change_screen("help_screen", direction='down', mode='pop')]]
+        md_bg_color: app.theme_cls.primary_color
+        elevation : 8
+        pos_hint: {"top": 1, "left": 1}
+        size_hint: 1, .1
+    
+    NavigationLayout :
+        ScreenManager :
+            id: screen_manager
+            size_hint: 1, 1
+            pos_hint: {"top": 1, "left": 1}
+            HomeScreen:
+                name: "home_screen"
+                id: home_screen
+            HelpScreen:
+                name: "help_screen"
+                id: help_screen
+            ProfilePhotoScreen:
+                name: "profilephoto_screen"
+                id: profilephoto_screen
+            TakePhotoScreen:
+                name: "takephoto_screen"
+                id: takephotoscreen
+            TrainPhotoScreen:
+                name: "trainphoto_screen"
+                id: trainphoto_screen
+    
+    MDNavigationDrawer :
+        id : nav_drawer
+        BoxLayout : 
+            orientation : 'vertical'
+            spacing : '8dp'
+            padding : '8dp'
+            
+            ImageButton:
+                id: profile
+                source: app.img_source_path
+                
+                on_release:
+                    nav_drawer.toggle_nav_drawer()
+                    app.change_screen("profilephoto_screen", direction='down', mode='pop')
+            
+            MDLabel :
+                text : 'Click to Change Profile'
+                font_style : 'Subtitle1'
+                size_hint_y : None
+                height : self.texture_size[1]
+                
+            MDLabel :
+                text : ' Deepak Sharma \n deepak1702074@gmail.com'
+                font_style : 'Caption'
+                size_hint_y : None
+                height : self.texture_size[1]
+            
+            ScrollView :
+                MDList :
+                    OneLineIconListItem :
+                        text : 'Change Theme'
+                        on_press: 
+                            app.show_theme_picker()
+                            nav_drawer.toggle_nav_drawer()
+                        IconLeftWidget:
+                            icon: 'format-paint'
+                    
+                    OneLineIconListItem :
+                        text : 'Favourite'
+                        on_release: 
+                            nav_drawer.toggle_nav_drawer()
+                        IconLeftWidget:
+                            icon: 'star'
+

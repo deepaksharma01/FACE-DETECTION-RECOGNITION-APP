@@ -1,0 +1,27 @@
+#:import utils kivy.utils
+
+<TrainPhotoScreen>:
+    FloatLayout:
+        GridLayout:
+            cols: 1
+            pos_hint: {"top": .895, "left": 1}
+            size_hint: 1, .795
+            id: trainphotogrid
+
+        MDFillRoundFlatButton:
+            text:"    Train Data    "
+            font_size: "16sp"
+            
+            pos_hint: {'center_x':0.5,'center_y':0.5}
+            on_release: 
+                root.TrainData()
+
+        MDFloatingActionButton:
+            icon: 'home'
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.bg_dark            
+            md_bg_color: app.theme_cls.primary_color
+            pos_hint: {'center_x':0.8,'center_y':0.1}
+            on_release:
+                app.change_screen("home_screen", direction='right', mode='pop')
+         

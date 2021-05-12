@@ -1,0 +1,39 @@
+#:import utils kivy.utils
+
+<TakePhotoScreen>:
+    FloatLayout:
+        GridLayout:
+            cols: 1
+            pos_hint: {"top": .895, "left": 1}
+            size_hint: 1, .795
+            id: takephotogrid  
+
+        MDTextField:
+            id: gettext
+            mode: "rectangle"
+            hint_text:"Enter a Username"
+            helper_text:" "
+            helper_text_mode:"on_focus"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            size_hint_x:None
+            width:250
+            
+
+        MDFillRoundFlatButton:
+            text:"    Register    "
+            font_size: "16sp"
+            
+            pos_hint: {'center_x':0.5,'center_y':0.4}
+            on_release: 
+                root.TakePhoto(app.root.ids.takephotoscreen.ids.gettext.text)
+                app.clear()
+           
+        MDFloatingActionButton:
+            icon: 'home'
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.bg_dark           
+            md_bg_color: app.theme_cls.primary_color
+            pos_hint: {'center_x':0.8,'center_y':0.1}
+            on_release:
+                app.change_screen("home_screen", direction='right', mode='pop')
+         

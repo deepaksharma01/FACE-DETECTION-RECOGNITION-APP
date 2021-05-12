@@ -1,0 +1,89 @@
+#:import utils kivy.utils
+ 
+<HelpScreen>: 
+    FloatLayout:
+
+        MDCard:
+            size_hint: 0.9, 0.7
+            pos_hint: {"center_x": .5, "center_y": .5}
+            md_bg_color: app.theme_cls.primary_color
+            MDLabel:
+                text: "[u]USER GUIDE[/u]"
+                markup:True
+                halign: "center"
+                font_style: "H6"
+                pos_hint:{'center_y':0.9}
+                theme_text_color: 'Custom'
+                text_color: app.theme_cls.bg_dark
+        
+        MDLabel:
+            text: "1. Click"    
+            pos_hint:{'center_x':0.6,'center_y':0.65}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+        MDIconButton:
+            icon:'camera-plus'
+            pos_hint:{'center_x':0.33,'center_y':0.65}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+        
+        MDLabel:
+            text: "button to Register."    
+            pos_hint:{'center_x':0.9,'center_y':0.65}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+        MDLabel:
+            text: "2. Then"    
+            pos_hint:{'center_x':0.6,'center_y':0.5}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+        MDIconButton:
+            icon:'electron-framework'
+            pos_hint:{'center_x':0.33,'center_y':0.5}     
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+        MDLabel:
+            text: "button to Train."    
+            pos_hint:{'center_x':0.9,'center_y':0.5}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+        MDLabel:
+            text: "3. And"    
+            pos_hint:{'center_x':0.6,'center_y':0.35}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+                
+        MDIconButton:
+            icon:'face-recognition'
+            pos_hint:{'center_x':0.33,'center_y':0.35} 
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark      
+
+        MDLabel:
+            text: "button to Detect Faces."    
+            pos_hint:{'center_x':0.9,'center_y':0.35}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+
+
+
+        MDFlatButton:
+            text: "Close"
+            font_size: "20sp"
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.bg_dark
+            pos_hint:{'center_x':0.8,'center_y':0.2}
+            on_release:
+                app.change_screen("home_screen", direction='up', mode='push')
+
+        
+
+                        
+    
+
+

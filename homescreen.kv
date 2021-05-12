@@ -1,0 +1,24 @@
+#:import utils kivy.utils
+ 
+<HomeScreen>: 
+    FloatLayout:
+        orientation:'vertical'
+        MDLabel:
+            text: "Welcome to Face Detection App!!"
+            halign: "center"
+            font_style:'Subtitle1'
+        MDBottomAppBar:
+            
+            MDToolbar:
+                left_action_items: [['camera-plus', lambda x : app.change_screen("takephoto_screen", direction='left', mode='pop')]]
+                right_action_items: [['electron-framework', lambda x : app.change_screen("trainphoto_screen", direction='left', mode='pop')]]
+                
+                mode: 'center'
+                type: 'bottom'
+                icon: 'face-recognition'
+                specific_text_color: app.theme_cls.bg_dark
+                action_icon_color: app.theme_cls.bg_dark
+                text_icon_color: app.theme_cls.bg_dark
+                on_action_button: root.Detect()
+                
+        
