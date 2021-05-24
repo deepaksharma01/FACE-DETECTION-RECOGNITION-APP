@@ -148,7 +148,10 @@ class TakePhotoScreen(Screen):
 
             cap.release()
             cv2.destroyAllWindows()
-
+        
+    def clear(self):
+        self.ids.gettext.text = " "   
+        
     def close(self,obj):
         self.dialog.dismiss()
        
@@ -309,9 +312,6 @@ class MainApp(MDApp):
         if screen_name == "trainphoto_screen":
             self.root.ids.titlename.title = "Train Photos"
             #print("Screen name is ", screen_name)
-                   
-    
-    def clear(self):
-        self.root.ids.takephotoscreen.ids.gettext.text = " "     
+                    
 
 MainApp().run()
