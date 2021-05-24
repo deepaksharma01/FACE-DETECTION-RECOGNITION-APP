@@ -71,8 +71,9 @@ class ProfilePhotoScreen(Screen):
     pass
 
 class TakePhotoScreen(Screen):
-    def TakePhoto(self,name):
+    def TakePhoto(self):
         #print(name)
+        name = self.ids.gettext.text
         
         self.flag = 0
         def face_extractor(img):
